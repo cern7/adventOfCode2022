@@ -45,8 +45,5 @@ public class Day1 {
 
     public static void main(String[] args) throws IOException {
         readFile();
-        System.out.println(max);
-
-        System.out.printf("Total calories of top three elfs: %d\n", totalTopThreeElfCalories);
     }
 }
