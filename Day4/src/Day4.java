@@ -14,13 +14,17 @@ public class Day4 {
         while (reader.ready()) {
             line = reader.readLine();
 
-            Integer firstElfStart = Integer.parseInt(line.split(",")[0].split("-")[0]);
-            Integer firstElfEnd = Integer.parseInt(line.split(",")[0].split("-")[1]);
-            Integer secondElfStart = Integer.parseInt(line.split(",")[1].split("-")[0]);
-            Integer secondElfEnd = Integer.parseInt(line.split(",")[1].split("-")[1]);
-            if (firstElfStart <= secondElfStart && firstElfEnd >= secondElfEnd) {
-                assgPair++;
-            } else if (secondElfStart <= firstElfStart && secondElfEnd >= firstElfEnd) {
+            int firstElfStart = Integer.parseInt(line.split(",")[0].split("-")[0]);
+            int firstElfEnd = Integer.parseInt(line.split(",")[0].split("-")[1]);
+            int secondElfStart = Integer.parseInt(line.split(",")[1].split("-")[0]);
+            int secondElfEnd = Integer.parseInt(line.split(",")[1].split("-")[1]);
+//            if (firstElfStart <= secondElfStart && firstElfEnd >= secondElfEnd) {
+//                assgPair++;
+//            } else if (secondElfStart <= firstElfStart && secondElfEnd >= firstElfEnd) {
+//                assgPair++;
+//            }
+            if (firstElfEnd < secondElfStart || firstElfStart > secondElfEnd) {
+            } else {
                 assgPair++;
             }
 //            break;
