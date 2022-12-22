@@ -2,6 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.Arrays;
 
 public class Day3 {
     private static final String inputPath = "inputDay3.txt";
@@ -23,18 +24,34 @@ public class Day3 {
             for (int i = 0; i < firstCompartment.length; i++) {
                 if (firstCompartment[i] > 0 && secondCompartment[i] != 0) {
                     int ch = 122 - i;
-                    if (ch > 64 && ch < 91) {// is lowercase char
-                        prioritiesSum += (ch - 38);
-                    } else if (ch > 96) {
-                        prioritiesSum += (ch - 96);
-                    }
+                    prioritiesSum += ch > 96 ? ch - 96 : ch - 38;
                 }
             }
         }
         System.out.println(prioritiesSum);
     }
 
+    private static void sol2() throws IOException {
+        BufferedReader reader = new BufferedReader(new FileReader(inputPath));
+        String[] group = new String[3];
+        while (reader.ready()) {
+            group[0] = reader.readLine();
+            group[1] = reader.readLine();
+            group[2] = reader.readLine();
+            for (int i = 0; i < group[0].length(); i++) {
+                char ch = group[0].charAt(i);
+                if (group[1].contains(ch + "") && group[2].contains(ch + "")) {
+                    prioritiesSum += ch > 96 ? ch - 96 : ch - 38;
+                    break;
+                }
+            }
+        }
+        System.out.println(prioritiesSum);
+
+    }
+
     public static void main(String[] args) throws IOException {
-        sol();
+        //sol();
+        sol2();
     }
 }
